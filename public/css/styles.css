@@ -1,0 +1,115 @@
+@import "main.css";
+.title-container{
+    padding: 3% 7%;
+    background-color:#125B50 ;
+}
+.carousel-item{
+    padding: 7% 15%;
+    background-color: #B4E197;
+}   
+h1,h2,h3,h4,h5,h6{
+    font-family: "montserrat";
+    font-weight: 700;
+}
+h2{
+    padding-bottom: 12px;
+}
+.button{
+    background-color:#005555;
+    border-color: #005555;
+}
+.button:hover, .button:focus{
+    background-color:#417D7A;
+}
+/* cards */
+.container{
+    width:100%;
+}
+.card{
+    width:16rem;
+    margin: 1rem;
+    text-align: left;
+  }
+.row{
+      width:100%;
+      margin: 2rem; 
+  }
+  /* testomonial-section */
+
+#testimonials{
+    background-color: #B4E197;
+    color: #005555;
+}
+
+.testimonials-img{
+    width:10%;
+    border-radius: 100%;
+    margin: 20px;
+}
+.testimonial-text{
+    font-size: 3rem;
+    line-height:1.5;
+}
+/* footer */
+#footer{
+    font-family: "montserrat";
+    font-weight: 700;
+    background-color: #B4E197;
+    padding: 2% 7%;
+}
+.footer-icons{
+    padding: 20px 10px;
+}
+
+
+/* room rental */
+
+.room-btn{
+    background-color:#005555;
+    border-color: #005555;
+    margin: 1rem;
+    margin-top: 3rem;
+    position: relative;
+    left:40%;
+}
+.room-btn:hover, .room-btn:focus {
+    background-color:#417D7A;
+}
+.bold{
+    font-weight: bold;
+}
+/* add room */
+
+.add-room-form{
+    text-align: left;
+    margin :3% 35%;
+}
+
+/* success page */
+
+.success-jumbotron{
+    text-align: left;
+}
+.success-p{
+    padding-left: 0;
+}
+
+/* coaching review */
+.coaching-btn1{
+    margin: 1rem;
+    margin-top: 3rem;
+    position: relative;
+    right: 40%;
+}
+
+.coaching-list{
+    margin: 2rem 25rem;
+}
+a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+.coaching-details{
+    margin:2rem 25rem;
+    text-align: left;
+}

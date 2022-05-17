@@ -1,0 +1,27 @@
+<%- include("header") -%> 
+<div class="add-room-form">
+    <form action="/addcoaching" method="post" >
+        <div class="form-group">
+            <label for="name">Name :</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label for="location">Address :</label>
+            <textarea class="form-control" id="location" name="location" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="Course">Courses available :</label>
+            <input type="text" class="form-control" id="course" name="course" placeholder="Enter Courses">
+        </div>
+        <div class="form-group">
+            <label for="contact-number">Contact-number :</label>
+            <input type="number" class="form-control" id="contact" name="contact" placeholder="Enter Contact Number">
+        </div>
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+        </div>
+        <button type="submit" class="btn btn-secondary button">Submit</button>
+    </form>
+</div>
+<%- include("footer") -%>

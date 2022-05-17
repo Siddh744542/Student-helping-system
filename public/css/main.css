@@ -1,0 +1,23 @@
+body{
+    font-family: 'Montserrat';
+    font-weight: 300;
+    text-align: center;
+
+}
+.title-container{
+    padding: 3% 7%;
+    background-color:#125B50 ;
+}
+.navbar-brand{
+    font-family: "ubuntu";
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.nav-item{
+    padding: 0 18px;
+}
+.nav.link{
+    font-size: 1.3rem;
+    font-family: "Montserrat";
+    font-weight: 300;
+}

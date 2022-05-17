@@ -1,0 +1,53 @@
+<%- include("header") -%>
+
+
+<div class="coaching-details">
+    <h1><%=coachinglist[i].name%></h1>
+    <br>
+  <ul class="list-group">
+    <li class="list-group-item"><span class="bold">Rating:</span> <%= coachinglist[i].rating %> stars</li>
+    <li class="list-group-item"><span class="bold">Courses available:</span> <%= coachinglist[i].course %></li>
+    <li class="list-group-item"><span class="bold">Contact:</span> <%= coachinglist[i].contact %></li>
+    <li class="list-group-item"><span class="bold">Email:</span> <%= coachinglist[i].email %></li>
+  </ul>
+</div>
+<div class="coaching-details ratings">
+    <h3>Rate this Coaching</h3>
+    <form action="/viewcoaching" method="post">
+            <input type="hidden" id="index" name="index" value="<%=i%>">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="stars" id="one" value="1" checked>
+            <label class="form-check-label" for="one">
+                ⭐
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="stars" id="two" value="2">
+            <label class="form-check-label" for="two">
+                ⭐⭐
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="stars" id="three" value="3">
+            <label class="form-check-label" for="three">
+                ⭐⭐⭐
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="stars" id="four" value="4">
+            <label class="form-check-label" for="four">
+                ⭐⭐⭐⭐
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="stars" id="five" value="5">
+            <label class="form-check-label" for="five">
+                ⭐⭐⭐⭐⭐
+            </label>
+          </div>
+          <br>
+          <button type="submit" formaction="/viewcoaching" class="btn btn-secondary button">Submit Rating</button>
+    </form>
+</div>
+
+<%- include("footer") -%>

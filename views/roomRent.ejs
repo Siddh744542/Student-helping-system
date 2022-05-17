@@ -1,0 +1,29 @@
+<%- include("header") -%> 
+
+<div class="button-div">
+  <form action="/addroom">
+    <button type="submit" formaction="/addroom" class="btn btn-secondary btn-lg room-btn">Add Room</button>
+  </form>
+</div>
+<!-- cards -->
+<div class="container">
+    <div class="row mx-auto">
+      <% for( let i = 0; i < jsondata.length; i++ ) { %>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="card">
+            <img src="images/<%=Math.floor((Math.random() * 5)+1)%>.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"> <%= jsondata[i].name %></h5>
+              <p class="card-text"> <%= jsondata[i].location %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"> <span class="bold">Rent:</span> <%= jsondata[i].rent %> </li>
+              <li class="list-group-item"> <span class="bold">Contact:</span> <%= jsondata[i].contact %></li>
+              <li class="list-group-item"> <span class="bold">Email:</span> <%= jsondata[i].email %></li>
+            </ul>  
+          </div>
+        </div>    
+      <% } %>
+    </div>
+  </div>
+  <%- include("footer") -%> 

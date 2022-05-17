@@ -1,0 +1,36 @@
+<%- include("header") -%> 
+<div class="add-room-form">
+    <form action="/addroom" method="post" >
+        <div class="form-group">
+            <label for="name">Name :</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location :</label>
+            <textarea class="form-control" id="location" name="location" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="rent">Rent/month :</label>
+            <input type="number" class="form-control" id="rent" name="rent" placeholder="Enter Rent">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="light-bill">
+            <label class="form-check-label" name="checkbox" for="light-bill">Electricity bill included</label>
+        </div>
+        <div class="form-group">
+            <label for="contact-number">Contact-number :</label>
+            <input type="number" class="form-control" id="contact" name="contact" placeholder="Enter Contact Number">
+        </div>
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+        </div>
+        <div class="form-group">
+            <label for="image">Upload Image of the Room :</label>
+            <input type="file" class="form-control-file" accept="image/png, image/jpeg" id="image" name="image">
+        </div>
+        <button type="submit" class="btn btn-secondary button">Submit</button>
+    </form>
+</div>
+<%- include("footer") -%>

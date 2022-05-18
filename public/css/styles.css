@@ -113,3 +113,12 @@ a {
     margin:2rem 25rem;
     text-align: left;
 }
+
+.product-details{
+    margin:2rem 12rem;
+    text-align: left;
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }

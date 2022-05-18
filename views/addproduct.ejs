@@ -1,0 +1,39 @@
+<%- include("header") -%> 
+<div class="add-room-form">
+    <form action="/addproduct" method="post">
+        <div class="form-group">
+            <label for="productName">Product's Name :</label>
+            <input type="text" class="form-control" id="productName" name="productName" placeholder="What is the Product?">
+        </div> 
+        <div class="form-group">
+            <label for="name">Your Name :</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name:">
+        </div> 
+        <div class="form-group">
+            <label for="description">Description :</label>
+            <textarea class="form-control" id="description" name="description" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="condition">Condtion :</label>
+            <input type="text" class="form-control" id="condition" name="condition" placeholder="Condtion of the Product?">
+        </div>
+        <div class="form-group">
+            <label for="price">Price :</label>
+            <input type="number" class="form-control" id="price" name="price" placeholder="price of the product?">
+        </div> 
+        <div class="form-group">
+            <label for="location">Location :</label>
+            <textarea class="form-control" id="location" name="location" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="contact-number">Contact-number :</label>
+            <input type="number" class="form-control" id="contact" name="contact" placeholder="Enter Contact Number">
+        </div>
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+        </div>
+        <button type="submit" class="btn btn-secondary button">Submit</button>
+    </form>
+</div>
+<%- include("footer") -%>

@@ -1,0 +1,22 @@
+<%- include("header") -%> 
+<table class="center">
+    <tr>
+        <td><img src="products/<%=Math.floor((Math.random() * 4)+1)%>.jpg" height="300" width="400" class="card-img-top"></td>
+        <td>
+            <div class="product-details">
+                <h1>Rs<%=product[i].price%></h1>
+                <br>
+                <h3><%=product[i].condtion%></h3>
+              <ul class="list-group">
+                <li class="list-group-item"><span class="bold">Product Name:</span> <%= product[i].productName %></li>
+                <li class="list-group-item"><span class="bold">Location:</span> <%= product[i].location %></li>
+                <li class="list-group-item"><span class="bold">Description:</span> <%= product[i].description %></li>
+                <li class="list-group-item"><span class="bold">Seller's Name:</span> <%= product[i].name %></li>
+                <li class="list-group-item"><span class="bold">Contact Number:</span> <%= product[i].contact %></li>
+                <li class="list-group-item"><span class="bold">Email Number:</span> <%= product[i].email %></li>
+              </ul>
+            </div>
+        </td>
+    </tr>
+</table>
+<%- include("footer") -%> 

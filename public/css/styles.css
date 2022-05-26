@@ -21,6 +21,10 @@ h2{
 .button:hover, .button:focus{
     background-color:#417D7A;
 }
+.heading-color{
+    color: #005555;
+}
+
 /* cards */
 .container{
     width:100%;
@@ -60,8 +64,6 @@ h2{
 .footer-icons{
     padding: 20px 10px;
 }
-
-
 /* room rental */
 
 .room-btn{
@@ -105,10 +107,13 @@ h2{
 .coaching-list{
     margin: 2rem 25rem;
 }
-a {
+a{
     color: inherit;
-    text-decoration: inherit;
-  }
+}
+a:hover{
+  color:#005555;
+  text-decoration:wavy;
+}
 .coaching-details{
     margin:2rem 25rem;
     text-align: left;

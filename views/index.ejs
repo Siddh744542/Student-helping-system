@@ -1,20 +1,23 @@
 <%- include("header") -%> 
-<!-- Testimonials -->
-
 <section id="testimonials">
-
     <div id="testimonial-carousel" class="carousel slide " data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item container-fluid active">
           <h2 class=" testimonial-text">
-            I no longer have to knock doors to rent room. I've found the best room in the area on Student helping System.
+            <% let j = Math.floor((Math.random() * data.length)) %> 
+            <%= data[j].review %>
           </h2>
-          <em>Mayank, katra</em>
-        </div>
+          <em><%= data[j].name %></em>
+        </div> 
+        <% for( let i = 0; i < 3; i++ ) { %>
         <div class="carousel-item container-fluid">
-          <h2 class="testimonial-text">i used to ask friends to give advice on choosing Coaching, but with Student helping System i have found the best coaching for myself</h2>
-          <em>Deepak, Teliyarganj</em>
-        </div>
+          <h2 class=" testimonial-text">
+            <% let j = Math.floor((Math.random() * data.length)) %> 
+            <%= data[j].review %>
+          </h2>
+          <em><%= data[j].name %></em>
+        </div> 
+        <%}%> 
       </div>
      <button class="carousel-control-prev" type="button" data-target="#testimonial-carousel" data-slide="prev">
         <span class="carousel-control-prev-icon"></span>
@@ -23,9 +26,7 @@
         <span class="carousel-control-next-icon"></span>
       </button>
     </div>
-
   </section>
-
   <!-- cards -->
   <div class="container">
     <div class="row mx-auto">
@@ -47,5 +48,4 @@
       <% } %>
     </div>
   </div>
-  
 <%- include("footer") -%> 

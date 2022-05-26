@@ -1,37 +1,32 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 var fs = require('fs');
+var path = require('path');
 const mongoose = require("mongoose");
-const { stringify } = require("querystring");
-const { log, Console } = require("console");
 const app = express();
 app.use(express.static("public"));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine', 'ejs');
 mongoose.connect("mongodb://localhost:27017/StudentDB");
-
-
-
 //HOme page 
-
-
 
 app.get("/", function(req, res){
   Room.find(function(err, rentdata){
     if(err){
       console.log(err);
-    }
-    else {
-      res.render("index" ,{jsondata : rentdata});
-    }
-  })
+    } else {
+      Review.find(function(err,data){
+        if(err){
+          console.log(err);
+        } else {
+          res.render("index" ,{jsondata : rentdata, data:data});
+        }
+      })
+    }})
 });
 
-
-
 // Rent Room section
-
-
 
 const roomDetailsSchema = new mongoose.Schema({
   name:{
@@ -55,15 +50,12 @@ const roomDetailsSchema = new mongoose.Schema({
     required:[true, "please check your data entery, email is not specified!!"]
   }
 })
-
 const Room = mongoose.model("room",roomDetailsSchema);
-
 app.get("/roomrent", function(req, res){
   Room.find(function(err, rentdata){
     if(err){
       console.log(err);
-    }
-    else {
+    } else {
       res.render("roomRent" ,{jsondata : rentdata});
     }
   })
@@ -76,7 +68,6 @@ app.post("/addroom", function(req,res){
     name: req.body.name,
     location: req.body.location,
     rent: req.body.rent,
-    lightBill: req.body.checkbox,
     contact: req.body.contact,
     email: req.body.email
   })
@@ -84,11 +75,7 @@ app.post("/addroom", function(req,res){
   res.redirect("success");
 });
 
-
-
 // Market section
-
-
 
 const productSchema = new mongoose.Schema({
   productName:String,
@@ -101,32 +88,27 @@ const productSchema = new mongoose.Schema({
   email:String
 })
 const Product = new mongoose.model("product",productSchema);
-
 app.get("/market", function(req, res){
   Product.find(function(err, data){
     if(err){
       console.log(err);
     } else {
-      res.render("market.ejs",{product: data});
+      res.render("market",{product: data});
     }
   })
-  
 });
-
 app.get("/viewproduct", function(req, res){
   Product.find(function(err, data){
     if(err){
       console.log(err);
     } else {
-      res.render("viewproduct.ejs",{product: data, i: req.query.tag});
+      res.render("viewproduct.ejs",{product: data, i: req.query.tag, rand:req.query.rand});
     }
   })
 })
-
 app.get("/addproduct", function(req, res){
-  res.render("addproduct.ejs");
+  res.render("addproduct");
 });
-
 app.post("/addproduct", function(req,res){
   let newproduct = new Product({
     productName: req.body.productName,
@@ -142,13 +124,7 @@ app.post("/addproduct", function(req,res){
   res.redirect("success");
 })
 
-
-
-
 // coaching section
-
-
-
 
 const coachingSchema = new mongoose.Schema({
   name:{
@@ -178,14 +154,12 @@ const coachingSchema = new mongoose.Schema({
   },
   ratings:[{rate:Number}]
 })
-
 const Coaching = new mongoose.model("coachingList",coachingSchema);
 app.get("/coachings", function(req, res){
   Coaching.find(function(err, coachingData){
     if(err){
       console.log(err);
-    }
-    else {
+    } else {
       res.render("coachingReviews", {coachinglist: coachingData});
     }
   });
@@ -199,7 +173,6 @@ app.get("/addcoaching", function(req, res){
     }
   });
 });
-
 app.post("/addcoaching", function(req, res){
   let newCoaching = new Coaching({
     name: req.body.name,
@@ -213,7 +186,6 @@ app.post("/addcoaching", function(req, res){
   newCoaching.save();
   res.redirect("success");
 });
-
 app.get("/viewcoaching", function(req, res){
   console.log(req.query.tag);
   Coaching.find(function(err, coachingData){
@@ -224,15 +196,13 @@ app.get("/viewcoaching", function(req, res){
     }
   });
 });
-
 app.post("/viewcoaching", function(req, res){
   let newrating={rate:Number(req.body.stars)};
   const id= req.body.index;
   Coaching.findOneAndUpdate( {_id : id}, {$push: {ratings: newrating}}, function(err,success){
     if(err){
       console.log(err);
-    }
-    else{
+    } else{
       console.log(success);
     }
   });
@@ -253,16 +223,30 @@ app.post("/viewcoaching", function(req, res){
     });
   });
   res.render("success");
-
 })
 
+//rating
 
+const reviewSchema = new mongoose.Schema({
+  review:String,
+  name:String
+})
+const Review = new mongoose.model("review", reviewSchema); 
+app.get("/review", function(req,res){
+  res.render("rating");
+})
+app.post("/reviews", function(req, res){
+  const newReview = new Review({
+    review:req.body.review,
+    name: req.body.name
+  })
+  newReview.save();
+  res.render("success");
+})
 // Success page 
 app.get("/success", function(req, res){
   res.render("success");
 });
-
 app.listen(3000, function(){
   console.log("Server started on port 3000.");
 });
-
